@@ -9,13 +9,7 @@ local function _toggle_go_test_file()
   local test_file_name = current_file_name .. '_test.' .. current_file_extension
   local test_file_path = current_file_dir .. '/' .. test_file_name
 
-  if vim.fn.filereadable(test_file_path) == 1 then
-    vim.cmd('e ' .. test_file_path)
-  else
-    local test_file_content = [[package ]] .. current_file_name
-    vim.fn.writefile({test_file_content}, test_file_path)
-    vim.cmd('e ' .. test_file_path)
-  end
+  vim.cmd('e ' .. test_file_path)
 end
 
 local function _toggle_go_file()
@@ -27,11 +21,7 @@ local function _toggle_go_file()
   local main_file_name = current_file_name:gsub('_test', '')
   local main_file_path = current_file_dir .. '/' .. main_file_name .. '.' .. current_file_extension
 
-  if vim.fn.filereadable(main_file_path) == 1 then
-    vim.cmd('e ' .. main_file_path)
-  else
-    vim.cmd('e ' .. main_file_path)
-  end
+  vim.cmd('e ' .. main_file_path)
 end
 
 local function toggle_go_test_file()
