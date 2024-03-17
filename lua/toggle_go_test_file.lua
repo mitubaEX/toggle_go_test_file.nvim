@@ -30,8 +30,6 @@ local function _toggle_go_file()
   if vim.fn.filereadable(main_file_path) == 1 then
     vim.cmd('e ' .. main_file_path)
   else
-    local main_file_content = [[package ]] .. main_file_name
-    vim.fn.writefile({main_file_content}, main_file_path)
     vim.cmd('e ' .. main_file_path)
   end
 end
